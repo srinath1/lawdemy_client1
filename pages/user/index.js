@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../../context";
-import UserRoute from "../../components/routes/UserRoute";
+import UserRoute from "../../components/Routes/UserRoute";
 import axios from "axios";
 import { Avatar } from "antd";
 import Link from "next/link";
