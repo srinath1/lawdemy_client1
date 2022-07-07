@@ -2,7 +2,7 @@ import { useState, useEffect,useContext } from "react";
 import axios from "axios";
 import  { useRouter } from "next/router";
 import SingleCourseJumbotron from "../../components/cards/SingleCourseJumbotron";
-import PreviewModal from "../../components/modal/PreviewModal";
+import PreviewModal from "../../components/Modal/PreviewModal";
 import SingleCourseLesson from "../../components/cards/SingleCourseLesson";
 import { Context } from "../../context";
 import {loadStripe} from '@stripe/stripe-js'
