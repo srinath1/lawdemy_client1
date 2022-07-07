@@ -1,5 +1,5 @@
 import React from 'react'
-import UserRoute from '../../components/routes/UserRoute'
+import UserRoute from '../../components/Routes/UserRoute'
 import { CloudSyncOutlined } from '@ant-design/icons'
 
 const StripeCancel = () => {
