@@ -1,0 +1,10 @@
+.squared{
+    border-radius: 0px;
+}
+.jumbotron{
+    background-image: linear-gradient(to right,#ff0000,#ff9900);
+    color:black
+}
+.pointer{
+    cursor: pointer;
+}
