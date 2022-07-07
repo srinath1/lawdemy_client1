@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import InstructorRoute from "../../../../components/routes/InstructorRoute";
+import InstructorRoute from "../../../../components/Routes/InstructorRoute";
 import axios from "axios";
 import { Avatar, Tooltip, Button, Modal,List } from "antd";
 import { EditOutlined, CheckOutlined, UploadOutlined, QuestionOutlined, CloseOutlined, UserSwitchOutlined } from "@ant-design/icons";
