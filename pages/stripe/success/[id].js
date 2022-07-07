@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react'
 import { SyncOutlined } from '@ant-design/icons'
-import UserRoute from '../../../components/routes/UserRoute'
+import UserRoute from '../../../components/Routes/UserRoute'
 import {useRouter} from 'next/router'
 import axios from 'axios'
 
