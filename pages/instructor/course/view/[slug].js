@@ -35,7 +35,7 @@ const CourseView = () => {
 
   },[course])
   const studentCount=async()=>{
-    const {data}=await axios.post(`/api/instructor/student-count`,{
+    const {data}=await axios.post(`https://lawdemy.herokuapp.com/api/instructor/student-count`,{
       courseId:course._id
     })
     console.log(data)
@@ -43,7 +43,7 @@ const CourseView = () => {
   }
 
   const loadCourse = async () => {
-    const { data } = await axios.get(`/api/course/${slug}`);
+    const { data } = await axios.get(`https://lawdemy.herokuapp.com/api/course/${slug}`);
     setCourse(data);
   };
 
@@ -51,7 +51,7 @@ const CourseView = () => {
   const handleAddLesson =async (e) => {
     e.preventDefault();
 try{
-  const {data}=await axios.post(`/api/course/lesson/${slug}/${course.instructor._id}`,values)
+  const {data}=await axios.post(`https://lawdemy.herokuapp.com/api/course/lesson/${slug}/${course.instructor._id}`,values)
 setValues({...values,title:"",content:"",video:{}})
 setProgress(0)
 setUploadButtonText('Upoad Video')
@@ -78,7 +78,7 @@ setCourse(data)
       const videoData = new FormData();
       videoData.append("video", file);
       // save progress bar and send video as form data to backend
-      const { data } = await axios.post(`/api/course/video-upload/${course.instructor._id}`, videoData, {
+      const { data } = await axios.post(`https://lawdemy.herokuapp.com/api/course/video-upload/${course.instructor._id}`, videoData, {
         onUploadProgress: (e) => {
           setProgress(Math.round((100 * e.loaded) / e.total));
         },
@@ -95,7 +95,7 @@ setCourse(data)
   const handleVideoRemove=async()=>{
     setUploading(true)
     try{
-      const {data}=await axios.post(`/api/course/video-remove/${course.instructor._id}`, values.video)
+      const {data}=await axios.post(`https://lawdemy.herokuapp.com/api/course/video-remove/${course.instructor._id}`, values.video)
       setValues({...values,video:{}})
       setProgress(0)
       setUploading(false)
@@ -112,7 +112,7 @@ setCourse(data)
     let answer=window.confirm('Once published course will be available for the users to enrol')
     if(!answer)return
 
-    const {data}=await axios.put(`/api/course/publish/${courseId}`)
+    const {data}=await axios.put(`https://lawdemy.herokuapp.com/api/course/publish/${courseId}`)
     setCourse(data)
 
   }catch(err){
@@ -125,7 +125,7 @@ setCourse(data)
 try{
   let answer=window.confirm('Once unpublished course will be not be available for the users to enrol')
   if(!answer)return
-  const {data}=await axios.put(`/api/course/unpublish/${courseId}`)
+  const {data}=await axios.put(`https://lawdemy.herokuapp.com/api/course/unpublish/${courseId}`)
     setCourse(data)
 }catch(err){
  
