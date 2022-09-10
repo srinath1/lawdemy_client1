@@ -20,6 +20,7 @@ const UserIndex = () => {
   const loadCourses = async () => {
     try {
       setLoading(true);
+      console.log('I am courses')
       const { data } = await axios.get("https://lawdemy.herokuapp.com/api/user-courses");
       setCourses(data);
       setLoading(false);
