@@ -36,7 +36,7 @@ const CourseCreate = () => {
     // resize
     Resizer.imageFileResizer(file, 720, 500, "JPEG", 100, 0, async (uri) => {
       try {
-        let { data } = await axios.post("/api/course/upload-image", {
+        let { data } = await axios.post("https://lawdemy.herokuapp.com/api/course/upload-image", {
           image: uri,
         });
         console.log("IMAGE UPLOADED", data);
@@ -55,7 +55,7 @@ const CourseCreate = () => {
     try {
       // console.log(values);
       setValues({ ...values, loading: true });
-      const res = await axios.post("/api/course/remove-image", { image });
+      const res = await axios.post("https://lawdemy.herokuapp.com/api/course/remove-image", { image });
       setImage({});
       setPreview("");
       setUploadButtonText("Upload Image");
@@ -71,7 +71,7 @@ const CourseCreate = () => {
     e.preventDefault();
     try {
       // console.log(values);
-      const { data } = await axios.post("/api/course", {
+      const { data } = await axios.post("https://lawdemy.herokuapp.com/api/course", {
         ...values,
         image,
       });
