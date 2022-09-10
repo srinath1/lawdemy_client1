@@ -36,37 +36,37 @@ const Provider = ({ children }) => {
     });
   }, []);
 
-  axios.interceptors.response.use(
-    function (response) {
-      // any status code that lie within the range of 2XX cause this function
-      // to trigger
-      console.log('retres->',response')
-      return response;
-    },
-    function (error) {
-      // any status codes that falls outside the range of 2xx cause this function
-      // to trigger
-      let res = error.response;
-      console.log('res=>',res)
-      if (res.status === 401 ) {
-        return new Promise((resolve, reject) => {
-          axios
-            .get("https://lawdemy.herokuapp.com/api/logout")
-            .then((data) => {
-              console.log("/401 error > logout");
-              dispatch({ type: "LOGOUT" });
-              window.localStorage.removeItem("user");
-              router.push("/login");
-            })
-            .catch((err) => {
-              console.log("AXIOS INTERCEPTORS ERR", err);
-              reject(error);
-            });
-        });
-      }
-      return Promise.reject(error);
-    }
-  );
+//   axios.interceptors.response.use(
+//     function (response) {
+//       // any status code that lie within the range of 2XX cause this function
+//       // to trigger
+//       console.log('retres->',response')
+//       return response;
+//     },
+//     function (error) {
+//       // any status codes that falls outside the range of 2xx cause this function
+//       // to trigger
+//       let res = error.response;
+//       console.log('res=>',res)
+//       if (res.status === 401 ) {
+//         return new Promise((resolve, reject) => {
+//           axios
+//             .get("https://lawdemy.herokuapp.com/api/logout")
+//             .then((data) => {
+//               console.log("/401 error > logout");
+//               dispatch({ type: "LOGOUT" });
+//               window.localStorage.removeItem("user");
+//               router.push("/login");
+//             })
+//             .catch((err) => {
+//               console.log("AXIOS INTERCEPTORS ERR", err);
+//               reject(error);
+//             });
+//         });
+//       }
+//       return Promise.reject(error);
+//     }
+//   );
 
 //   useEffect(() => {
 //     const getCsrfToken = async () => {
