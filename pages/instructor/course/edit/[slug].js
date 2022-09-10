@@ -41,7 +41,7 @@ const CourseEdit = () => {
   }, [slug]);
 
   const loadCourse = async () => {
-    const { data } = await axios.get(`/api/course/${slug}`);
+    const { data } = await axios.get(`https://lawdemy.herokuapp.com/api/course/${slug}`);
     console.log(data);
     if (data) setValues(data);
     if (data && data.image) setImage(data.image);
@@ -59,7 +59,7 @@ const CourseEdit = () => {
     // resize
     Resizer.imageFileResizer(file, 720, 500, "JPEG", 100, 0, async (uri) => {
       try {
-        let { data } = await axios.post("/api/course/upload-image", {
+        let { data } = await axios.post("https://lawdemy.herokuapp.com/api/course/upload-image", {
           image: uri,
         });
         console.log("IMAGE UPLOADED", data);
@@ -78,7 +78,7 @@ const CourseEdit = () => {
     try {
       // console.log(values);
       setValues({ ...values, loading: true });
-      const res = await axios.post("/api/course/remove-image", { image });
+      const res = await axios.post("https://lawdemy.herokuapp.com/api/course/remove-image", { image });
       setImage({});
       setPreview("");
       setUploadButtonText("Upload Image");
@@ -94,7 +94,7 @@ const CourseEdit = () => {
     e.preventDefault();
     try {
       // console.log(values);
-      const { data } = await axios.put(`/api/course/${slug}`, {
+      const { data } = await axios.put(`https://lawdemy.herokuapp.com/api/course/${slug}`, {
         ...values,
         image,
       });
@@ -139,7 +139,7 @@ const CourseEdit = () => {
     // console.log("removed", removed[0]._id);
     setValues({ ...values, lessons: allLessons });
     // send request to server
-    const { data } = await axios.put(`/api/course/${slug}/${removed[0]._id}`);
+    const { data } = await axios.put(`https://lawdemy.herokuapp.com/api/course/${slug}/${removed[0]._id}`);
     console.log("LESSON DELETED =>", data);
   };
 
@@ -147,7 +147,7 @@ const CourseEdit = () => {
     console.log('upload video')
 
     if(current.video && current.video.Location){
-      const res=await axios.post(`/api/course/video-remove/${values.instructor._id}`,
+      const res=await axios.post(`https://lawdemy.herokuapp.com/api/course/video-remove/${values.instructor._id}`,
 current.video
       )
     }
@@ -159,7 +159,7 @@ current.video
     videoData.append('video',file)
     videoData.append('courseId',values._id)
     console.log('VideoData=>',videoData)
-    const {data}=await axios.post(`/api/course/video-upload/${values.instructor._id}`,videoData,{
+    const {data}=await axios.post(`https://lawdemy.herokuapp.com/apicourse/video-upload/${values.instructor._id}`,videoData,{
       onUploadProgress:(e)=>setProgress(Math.round((100 * e.loaded)/e.total))
     })
     console.log('data=>',data)
@@ -171,7 +171,7 @@ current.video
   const handleUpdateLesson=async(e)=>{
     console.log('update lesson')
     e.preventDefault()
-    const {data}=await axios.put(`/api/course/lesson/${slug}/${current._id}`,current)
+    const {data}=await axios.put(`https://lawdemy.herokuapp.com/api/course/lesson/${slug}/${current._id}`,current)
     setVisible(false)
     setUploadVideoButtonText('Upload Video')
     if(data.ok){
