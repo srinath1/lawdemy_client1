@@ -35,7 +35,7 @@ const Provider = ({ children }) => {
       payload: JSON.parse(window.localStorage.getItem("user")),
     });
   }, []);
-  const state=JSON.parse(window.localStorage.getItem("user"))
+//   const state=JSON.parse(window.localStorage.getItem("user"))
   console.log('state1',state)
   const token = state && state.token ? state.token : "";
 //    axios.defaults.baseURL = `https://myjucsubscriptions.herokuapp.com/api`;
