@@ -17,7 +17,7 @@ const StudentRoute = ({children,showNav=true}) => {
 
   const fetchUser = async () => {
     try {
-      const { data } = await axios.get("/api/current-user");
+      const { data } = await axios.get("https://lawdemy.herokuapp.com/api/current-user");
       console.log(data.ok);
       if(data.ok){
           setOk(true)
