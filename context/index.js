@@ -46,6 +46,7 @@ const Provider = ({ children }) => {
       // any status codes that falls outside the range of 2xx cause this function
       // to trigger
       let res = error.response;
+      console.log('res=>',res)
       if (res.status === 401 && res.config && !res.config.__isRetryRequest) {
         return new Promise((resolve, reject) => {
           axios
