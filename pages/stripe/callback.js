@@ -11,7 +11,7 @@ const StripeCallback = () => {
 
   useEffect(() => {
     if (user) {
-      axios.post("/api/get-account-status").then((res) => {
+      axios.post("https://lawdemy.herokuapp.com/api/get-account-status").then((res) => {
           console.log(res)
           dispatch({
               type:'LOGIN',
