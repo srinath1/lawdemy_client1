@@ -13,7 +13,7 @@ const InstructorIndex = () => {
   }, []);
 
   const loadCourses = async () => {
-    const { data } = await axios.get("/api/instructor-courses");
+    const { data } = await axios.get("https://lawdemy.herokuapp.com/api/instructor-courses");
     setCourses(data);
   };
 
