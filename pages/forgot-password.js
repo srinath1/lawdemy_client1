@@ -30,7 +30,7 @@ const ForgotPassword = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const { data } = await axios.post("/api/forgot-password", { email });
+      const { data } = await axios.post("https://lawdemy.herokuapp.com/api/forgot-password", { email });
       setSuccess(true);
     //   toast("Check your email for the secret code");
       setLoading(false);
@@ -46,7 +46,7 @@ const ForgotPassword = () => {
     // return;
     try {
       setLoading(true);
-      const { data } = await axios.post("/api/reset-password", {
+      const { data } = await axios.post("https://lawdemy.herokuapp.com/api/reset-password", {
         email,
         code,
         newPassword,
