@@ -21,9 +21,9 @@ const SingleCourse = ({ course }) => {
       setLoading(true)
       if(!user) router.push('/login')
       if(enrolled.status) return router.push(`/user/course/${enrolled.course.slug}`)
-      const {data}=await axios.post(`/api/paid-enrollment/${course._id}`)
+      const {data}=await axios.post(`https://lawdemy.herokuapp.com/api/paid-enrollment/${course._id}`)
       console.log('stripe sesson',data)
-      const stripe=await loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY)
+      const stripe=await loadStripe('pk_test_NhwsAXiyEL3qlLqjuX1WyHg300xY6ZPY9c')
       stripe.redirectToCheckout({sessionId:data})
 
 
@@ -39,7 +39,7 @@ const SingleCourse = ({ course }) => {
       if(!user) router.push('/login')
       if(enrolled.status) return router.push(`/user/course/${enrolled.course.slug}`)
       setLoading(true)
-      const {data}=await axios.post(`/api/free-enrollment/${course._id}`)
+      const {data}=await axios.post(`https://lawdemy.herokuapp.com/api/free-enrollment/${course._id}`)
       console.log('freedata',data)
       setLoading(false)
       alert(data.message)
@@ -53,7 +53,7 @@ const SingleCourse = ({ course }) => {
 
   }
   const checkEnrollment=async()=>{
-    const {data}=await axios.get(`/api/check-enrollment/${course._id}`)
+    const {data}=await axios.get(`https://lawdemy.herokuapp.com/api/check-enrollment/${course._id}`)
     console.log('data',data)
     setEnrolled(data)
   }
