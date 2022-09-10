@@ -36,6 +36,7 @@ const Provider = ({ children }) => {
     });
   }, []);
   const state1=JSON.parse(window.localStorage.getItem("user"))
+  console.log('state1',state1)
   const token = state1 && state1.token ? state1.token : "";
 //    axios.defaults.baseURL = `https://myjucsubscriptions.herokuapp.com/api`;
 
