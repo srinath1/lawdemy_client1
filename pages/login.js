@@ -34,7 +34,7 @@ const Login = () => {
         email,
         password,
       });
-      // console.log("LOGIN RESPONSE", data);
+       console.log("LOGIN RESPONSE", data);
       dispatch({
         type: "LOGIN",
         payload: data,
