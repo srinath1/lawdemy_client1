@@ -40,6 +40,7 @@ const Provider = ({ children }) => {
     function (response) {
       // any status code that lie within the range of 2XX cause this function
       // to trigger
+      console.log('retres->',response')
       return response;
     },
     function (error) {
