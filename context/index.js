@@ -3,7 +3,7 @@ import axios from "axios";
 import { useRouter, userRouter } from "next/router";
 
 // initial state
-const initialState = {
+const intialState = {
   user: null,
 };
 
