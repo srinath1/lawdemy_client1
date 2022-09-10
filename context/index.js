@@ -37,7 +37,7 @@ const Provider = ({ children }) => {
   }, []);
 //   const state=JSON.parse(window.localStorage.getItem("user"))
   console.log('state1',state)
-  const token = user && user.token ? user.token : "";
+  const token = user && user.user.token ? user.user.token : "";
     axios.defaults.baseURL = `https://lawdemy.herokuapp.com/api`;
 
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
