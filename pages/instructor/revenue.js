@@ -14,7 +14,7 @@ const InstructorRevenue = () => {
     },[ ])
     const sendBalanceRequest=async()=>{
         console.log('Instructor payment')
-        const {data}=await axios.get(`/api/instructor/balance`)
+        const {data}=await axios.get(`https://lawdemy.herokuapp.com/api/instructor/balance`)
     console.log(data)
     setBalance(data)
     }
@@ -22,7 +22,7 @@ const InstructorRevenue = () => {
     console.log('payment settings')
     try{
         setLoading(true)
-        const {data} =await axios.get(`/api/instructor/payout-settings`)
+        const {data} =await axios.get(`https://lawdemy.herokuapp.com/api/instructor/payout-settings`)
         window.location.href=data
 
 
