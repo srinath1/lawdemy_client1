@@ -47,7 +47,7 @@ const Provider = ({ children }) => {
       // to trigger
       let res = error.response;
       console.log('res=>',res)
-      if (res.status === 401 && res.config && !res.config.__isRetryRequest) {
+      if (res.status === 401 ) {
         return new Promise((resolve, reject) => {
           axios
             .get("https://lawdemy.herokuapp.com/api/logout")
