@@ -27,7 +27,7 @@ const SingleCourse=()=>{
     },[course])
 
     const loadCompletedLessons = async () => {
-        const { data } = await axios.post(`/api/list-completed`, {
+        const { data } = await axios.post(`https://lawdemy.herokuapp.com/api/list-completed`, {
           courseId: course._id,
         });
         console.log("COMPLETED LESSONS => ", data);
@@ -35,13 +35,13 @@ const SingleCourse=()=>{
       };
 
     const loadCourse=async()=>{
-        const {data}=await axios.get(`/api/user/course/${slug}`)
+        const {data}=await axios.get(`https://lawdemy.herokuapp.com/api/user/course/${slug}`)
         setCourses(data)
     }
 
     const markCompleted=async()=>{
         console.log('send lesson to as mark as completed')
-        const {data}=await axios.post(`/api/mark-completed`,{
+        const {data}=await axios.post(`https://lawdemy.herokuapp.com/api/mark-completed`,{
             courseId:course._id,
             lessonId:course.lessons[clicked]._id
         })
@@ -52,7 +52,7 @@ const SingleCourse=()=>{
 
     const markIncompleted=async()=>{
        try{
-        const {data}=await axios.post(`/api/mark-incomplete`,{
+        const {data}=await axios.post(`https://lawdemy.herokuapp.com/api/mark-incomplete`,{
             courseId:course._id,
             lessonId:course.lessons[clicked]._id
         })
