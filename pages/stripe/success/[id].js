@@ -12,7 +12,7 @@ const StripeSuccess=()=>{
 
     },[id])
     const successRequest=async()=>{
-        const {data}=await axios.get(`/api/stripe-success/${id}`)
+        const {data}=await axios.get(`https://lawdemy.herokuapp.com/api/stripe-success/${id}`)
         console.log('stripe success data',data)
         router.push(`/user/course/${data.course.slug}`)
     }
