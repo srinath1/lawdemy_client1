@@ -4,8 +4,8 @@ import { useRouter, userRouter } from "next/router";
 
 // initial state
 const intialState = {
-  user: null,
-token:""
+  user: null
+
 };
 
 // create context
@@ -38,7 +38,7 @@ const Provider = ({ children }) => {
   }, []);
 //   const state=JSON.parse(window.localStorage.getItem("user"))
   console.log('state1',state)
-  const token = state && state.user.token ? state.user.token : "";
+  const token = state && state.user && state.user.token ? state.user.token : "";
     axios.defaults.baseURL = `https://lawdemy.herokuapp.com/api`;
 
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
