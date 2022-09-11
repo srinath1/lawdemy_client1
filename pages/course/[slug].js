@@ -20,7 +20,7 @@ const SingleCourse = ({ course }) => {
     try{
       setLoading(true)
       if(!user) router.push('/login')
-      if(enrolled.status) return router.push(`https://lawdemy.herokuapp.com/api/user/course/${enrolled.course.slug}`)
+      if(enrolled.status) return router.push(`/user/course/${enrolled.course.slug}`)
       const {data}=await axios.post(`https://lawdemy.herokuapp.com/api/paid-enrollment/${course._id}`)
       console.log('stripe sesson',data)
       const stripe=await loadStripe('pk_test_NhwsAXiyEL3qlLqjuX1WyHg300xY6ZPY9c')
