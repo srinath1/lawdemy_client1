@@ -5,6 +5,7 @@ import { useRouter, userRouter } from "next/router";
 // initial state
 const intialState = {
   user: null,
+token:""
 };
 
 // create context
